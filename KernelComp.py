@@ -21,8 +21,6 @@ def generate_data(mean0, var0, T, cp_prob) :
             data.append(np.random.normal(meanx+2,var0))
         else :
             data.append(np.random.normal(meanx-2,var0))
-        #data.append(np.random.normal(meanx,var0))       
-        #data.append(np.random.beta(5,2)+meanx)
         cnt+=1
     return data, cps, [0]+data
 
@@ -153,7 +151,6 @@ def plot_posterior(T, data, cps, cpk, cpg, R_kernel, R):
 
     for cp in cps:
         ax1.axvline(cp, c='red', ls='dotted')
-    #    ax2.axvline(cp, c='red', ls='dotted')
         ax3.axvline(cp, c='red', ls='dotted')
     
     use = np.ones(len(cps))
@@ -178,9 +175,6 @@ def plot_posterior(T, data, cps, cpk, cpg, R_kernel, R):
     print("tp fp tn fn =",tp,fp,tn,fn)
     print("Accuracy :",((tp+tn)*100)/T)
     print(delay)
-    
-    #for cp in cpg:
-    #    ax3.axvline(cp, c='green', ls='dotted')
     
     plt.show()
 
